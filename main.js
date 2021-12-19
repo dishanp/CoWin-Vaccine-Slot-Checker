@@ -1,5 +1,5 @@
 var pincodes = ["400053", "400004", "400056",]; //enter your pincodes
-var dateArr = ["14-05-2021", "15-05-2021", "16-05-2021"]; //enter your preffered date
+var dateArr = ["14-05-2021", "15-05-2021", "16-05-2021"]; //enter your preferred dates
 var trialCounter = 1;
 
 const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
@@ -7,7 +7,7 @@ const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.open( "GET", theUrl, false ); 
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
@@ -29,7 +29,7 @@ async function fetchByPincode() {
         for (s in a.centers[c].sessions) {
               if (a.centers[c].sessions[s].min_age_limit < 45 && a.centers[c].sessions[s].available_capacity > 0) {
                 console.log("Open Slot At: ", a.centers[c].pincode, a.centers[c].name, a.centers[c].sessions[s].available_capacity);
-                //Sound Alert:
+                // Sound Alert:
                 var audio = new Audio('https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3');
                 audio.play();
               }
